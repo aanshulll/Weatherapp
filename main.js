@@ -43,7 +43,11 @@ async function check(city) {
                     {
                        icon.src ="mist.png";
                     }
- 
+   else if(data.weather[0].main === 'Smoke')
+
+                    {
+                       icon.src ="smoke.png";
+                    }
 
 }
 
