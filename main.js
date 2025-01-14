@@ -9,7 +9,6 @@ async function check(city) {
     const res = await fetch(apiUrl + city + `&appid=${apikey}`);
     
     var data = await res.json();
-    console.log(data);
     document.querySelector(".city").innerHTML = data.name;
     document.querySelector(".temp").innerHTML = Math.round(data.main.temp - 273.15)+"°c";
     document.querySelector(".humidity").innerHTML = data.main.humidity  +"%";
@@ -57,5 +56,9 @@ searchbtn.addEventListener("click", ()=>
     check(search.value);
     
 })
-
+search.addEventListener("keyup", function(e) {
+   if (e.key === "Enter") {
+      check(search.value);
+   }
+});
 check("Dehli");
